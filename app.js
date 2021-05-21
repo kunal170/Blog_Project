@@ -2,6 +2,7 @@
 const express= require("express");
 const bodyParser= require("body-parser");
 const ejs= require("ejs");
+var favicon = require('serve-favicon');
 var _= require("lodash");
 const mongoose=require("mongoose");
 
@@ -16,9 +17,9 @@ const Post=mongoose.model("Post",postSchema);
 
 
 
-const homeStartingContent= "Hello! there I am Kunal Thite , I had come up with my latest blog and i hope all you will enjoy it and understand about the context and also you can free feel to give me suggestions so that my blog can become much better. At present i am new as a blog writer so my blog may ebe not that much interesting or good looking etc. things that are contained in any other professional blog writer.My blog will be basically on interest of my things, but also suggestion on other topic as well will be welcome.";
-const aboutContent= "This Blog will cover topics like gaming, criket, sports, studying, coding, Enginnering, memes, youtubers, pubg, about India, Media, Politics, about IIT-JEE and much more. blog will cover all the details and information about the topic and i tried to not to go besides the topic while talking about one topic. Data and claims are extracted from internet. Link is provided for further details for a particular topic.";
-const contactContent= "You can follow me on instagarm and of facebook and twitter as well if you wish its upto you. At present i have no youtube channel. I have also snapchat account but i use it rarely. link of id's had been given below and also my Email-id and whatsapp mo. too, feel free to contact me if you have any suggestions, issues or comlain through my social media accounts.";
+const homeStartingContent= "Hello! there I am Kunal Thite , I have Created This Blogging Website.Its free and Anonymous. Anybody can come here write a blog on whatever topic they like for and post on this website and people all around the world can see your blog and gain knowledge about that topic. If you like to mention your name and your social handles you can mention it on  Content of blog itself.";
+const aboutContent= "This Website is Very Simple To use. You Have To just Come to my website and the Read the Blogs as many times you want just for free and no login required. If you also wish to write a blog you can write just by clicking on button Create a new blog. You can Read all the blogs on the home page itself You just have scroll the page and read the blog accoring to topic you like. On the home page The content of blog is truncated to 100 words so to read the full blog you have click on Read more and you can easily Read the full blog." ;
+
 
 const app= express();
 
@@ -27,7 +28,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static("public"));
-
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.get("/", function(req, res) {
 	Post.find({},function(err,posts){
 if(!err){
